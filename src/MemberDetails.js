@@ -22,8 +22,7 @@ function MemberDetails() {
     }
     fetchRewards();
     fetchHistory();
-  }, [programId, memberId, programName, memberName, currentPoints,
-      fetchProgramName, fetchMemberData, fetchRewards, fetchHistory]);
+  }, [programId, memberId, programName, memberName, currentPoints]);
 
   const fetchProgramName = async () => {
     try {

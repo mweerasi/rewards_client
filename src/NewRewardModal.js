@@ -3,6 +3,7 @@ import axiosInstance from './axios';
 
 function NewRewardModal({ show, onClose, programId, onRewardAdded }) {
   const [rewardName, setRewardName] = useState('');
+  const [cost, setCost] = useState('');
   const [maxClaim, setMaxClaim] = useState('');
 
   const handleSubmit = async (e) => {
@@ -18,6 +19,7 @@ function NewRewardModal({ show, onClose, programId, onRewardAdded }) {
       // Link the reward to the program
       await axiosInstance.post(`/programs/${programId}/rewards/`, {
         reward: rewardId,
+        cost: cost === '' ? 100 : parseInt(cost),
         max_claim: maxClaim === '' ? null : parseInt(maxClaim),
       });
 
@@ -43,6 +45,15 @@ function NewRewardModal({ show, onClose, programId, onRewardAdded }) {
               type="text"
               value={rewardName}
               onChange={(e) => setRewardName(e.target.value)}
+            />
+          </label>
+          <label>
+            Cost of Reward:
+            <input
+              type="number"
+              value={cost}
+              onChange={(e) => setCost(e.target.value)}
+              placeholder="100"
             />
           </label>
           <label>
