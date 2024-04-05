@@ -1,7 +1,13 @@
 ## Available Scripts
 
-In the project directory, you can run:
+In the project directory, you can install the dependencies with:
 
+```
+npm install
+```
+
+
+And launch the frontend application with:
 ```
 npm start
 ```
